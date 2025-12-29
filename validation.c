@@ -1,14 +1,24 @@
 #include "push_swap.h"
 
-// int check_duplicates(char **splitted_numbers)
-// {
-// }
+int	check_duplicates(char **splitted_numbers)
+{
+	int	i;
+	int j;
+
+	i = 0;
+	while (i > splitted_numbers[i] - 1)
+	{
+
+	}
+	return
+}
 
 int	check_overflow(char *splitted_numbers)
 {
 	int		i;
 	int 	sign;
 	long	nbr;
+	long	limit;
 	
 	nbr = 0;
 	sign = 1;
@@ -16,20 +26,21 @@ int	check_overflow(char *splitted_numbers)
 	if (splitted_numbers[i] == '-' || splitted_numbers[i] == '+')
 	{
 		if (splitted_numbers[i] == '-')
-		{
 			sign = -1;
-			i++;
-		}
-	}
-	while (ft_isdigit(splitted_numbers[i]))
-	{
-		if ((nbr * 10 + (splitted_numbers[i] - '0')) > INT_MAX || )
-			return (0);
 		i++;
 	}
+	limit = 2147483648;
+	if (sign == 1)
+		limit = INT_MAX;
+	while (ft_isdigit(splitted_numbers[i]))
+	{
+		if (nbr > (limit - (splitted_numbers[i] - '0')) / 10)
+			return (0);
+		nbr = nbr * 10 + (splitted_numbers[i] - '0');
+		i++;
+	}
+	return (1);
 }
-// if ((nbr = sign * nbr) > INT_MAX || (nbr = sign * nbr) < INT_MIN)
-// 	return (0);
 
 int valid_format(char **splitted_numbers)
 {
@@ -59,6 +70,17 @@ int valid_format(char **splitted_numbers)
 	return (1);
 }
 
+//Organizar depois
+//valid_numbers(char **numbers)
+// {
+//     int values[];
+//     loop:
+//         - check formato
+//         - check overflow
+//         - values[i] = atoi
+//     check duplicatas em values
+// }
+
 int	valid_numbers(char **splitted_numbers)
 {
 	int i;
@@ -72,8 +94,14 @@ int	valid_numbers(char **splitted_numbers)
 			return (0);
 		i++;
 	}
-	// if (!check_duplicates(splitted_numbers))
-	// 	return (0);
+	i = 0;
+	while (splitted_numbers[i])
+	{
+		splitted_numbers[i] = ft_atoi(splitted_numbers[i]);
+		i++;
+	}
+	if (!check_duplicates(splitted_numbers))
+		return (0);
 	return (1);
 }
 char	**parce_input(int argc, char **argv)
