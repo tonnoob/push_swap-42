@@ -1,16 +1,23 @@
 #include "push_swap.h"
 
-int	check_duplicates(char **splitted_numbers)
+int	check_duplicates(int *splitted_numbers)
 {
 	int	i;
 	int j;
 
 	i = 0;
-	while (i > splitted_numbers[i] - 1)
+	while (i < splitted_numbers[i] - 1)
 	{
-
+		j = i + 1;
+		while (j < splitted_numbers[i])
+		{
+			if (splitted_numbers[i] == splitted_numbers[j])
+				return (0);
+			j++;
+		}
+		i++;
 	}
-	return
+	return (0);
 }
 
 int	check_overflow(char *splitted_numbers)
@@ -42,29 +49,23 @@ int	check_overflow(char *splitted_numbers)
 	return (1);
 }
 
-int valid_format(char **splitted_numbers)
+int valid_format(char *splitted_numbers)
 {
 	int	i;
-	int	j;
 
 	i = 0;
+	if (splitted_numbers[i] == '\0')
+		return (0);
+	if (splitted_numbers[i] == '+' || splitted_numbers[i] == '-')
+	{
+		if (!splitted_numbers[i + 1])
+			return (0);
+		i++;
+	}
 	while (splitted_numbers[i])
 	{
-		j = 0;
-		if (splitted_numbers[i][j] == '\0')
+		if (!ft_isdigit(splitted_numbers[i]))
 			return (0);
-		if (splitted_numbers[i][j] == '+' || splitted_numbers[i][j] == '-')
-		{
-			if (!splitted_numbers[i][j + 1])
-				return (0);
-			j++;
-		}
-		while (splitted_numbers[i][j])
-		{
-			if (!ft_isdigit(splitted_numbers[i][j]))
-				return (0);
-			j++;
-		}
 		i++;
 	}
 	return (1);
@@ -84,23 +85,19 @@ int valid_format(char **splitted_numbers)
 int	valid_numbers(char **splitted_numbers)
 {
 	int i;
+	int *numbers;
 
-	if (!valid_format(splitted_numbers))
-		return (0);
 	i = 0;
 	while (splitted_numbers[i])
 	{
+		if (!valid_format(splitted_numbers[i]))
+			return (0);
 		if (!check_overflow(splitted_numbers[i]))
 			return (0);
+		numbers[i] = ft_atoi(splitted_numbers[i]);
 		i++;
 	}
-	i = 0;
-	while (splitted_numbers[i])
-	{
-		splitted_numbers[i] = ft_atoi(splitted_numbers[i]);
-		i++;
-	}
-	if (!check_duplicates(splitted_numbers))
+	if (!check_duplicates(numbers))
 		return (0);
 	return (1);
 }
