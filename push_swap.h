@@ -19,7 +19,7 @@ typedef struct stack_s
 
 // int		check_duplicates(char **splitted_numbers);
 int		check_overflow(char *splitted_numbers);
-int 	valid_format(char **splitted_numbers);
+int		valid_format(char *splitted_numbers);
 int		valid_numbers(char **splitted_numbers);
 char	**parce_input(int argc, char **argv);
 

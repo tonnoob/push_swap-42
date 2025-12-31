@@ -1,21 +1,24 @@
 #include "push_swap.h"
 
-int	check_duplicates(int *splitted_numbers)
+int	check_duplicates(int **splitted_numbers)
 {
 	int	i;
 	int j;
 
 	i = 0;
-	while (i < splitted_numbers[i] - 1)
+	while
 	{
-		j = i + 1;
-		while (j < splitted_numbers[i])
+		while (i < splitted_numbers[i] - 1)
 		{
-			if (splitted_numbers[i] == splitted_numbers[j])
-				return (0);
-			j++;
+			j = i + 1;
+			while (j < splitted_numbers[i])
+			{
+				if (splitted_numbers[i] == splitted_numbers[j])
+					return (0);
+				j++;
+			}
+			i++;
 		}
-		i++;
 	}
 	return (0);
 }
@@ -85,7 +88,7 @@ int valid_format(char *splitted_numbers)
 int	valid_numbers(char **splitted_numbers)
 {
 	int i;
-	int *numbers;
+	int **numbers;
 
 	i = 0;
 	while (splitted_numbers[i])
