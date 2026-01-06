@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/06 20:02:04 by osousa-d          #+#    #+#             */
+/*   Updated: 2026/01/06 20:02:06 by osousa-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -17,12 +29,11 @@ typedef struct stack_s
 	int		size;
 } stack_t;
 
-// int		check_duplicates(char **splitted_numbers);
-int		check_overflow(char *splitted_numbers);
-int		valid_format(char *splitted_numbers);
-int		valid_numbers(char **splitted_numbers);
-char	**parce_input(int argc, char **argv);
-
+int	check_duplicates(int *numbers);
+int	check_overflow(char *str_splitted);
+int	valid_format(char *str_splitted);
+int	valid_numbers(char **str_splitted);
+int	*parce_input(int argc, char **argv);
 
 
 // sa / sb: trocam os dois primeiros nós

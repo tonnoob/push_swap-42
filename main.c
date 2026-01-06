@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/06 19:59:27 by osousa-d          #+#    #+#             */
+/*   Updated: 2026/01/06 19:59:28 by osousa-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 // O PRIMEIRO ARGUMENTO DEVE ESTAR NO TOPO
@@ -5,9 +17,8 @@
 
 int	main(int argc, char **argv)
 {
-	char	**numbers;
-	int		i;
-	int		j;
+	int	*numbers;
+	int	i;
 
 	numbers = parce_input(argc, argv);
 	if (!numbers || !numbers[0])
@@ -20,12 +31,7 @@ int	main(int argc, char **argv)
 		i = 0;
 		while (numbers[i])
 		{
-			j = 0;
-			while (numbers[i][j])
-			{
-				ft_printf("%c", numbers[i][j]);
-				j++;
-			}
+			ft_printf("%d", numbers[i]);
 			write(1, "\n", 1);
 			i++;
 		}
