@@ -19,6 +19,7 @@ int	main(int argc, char **argv)
 {
 	int	*numbers;
 	int	i;
+	int size;
 
 	numbers = parce_input(argc, argv);
 	if (!numbers || !numbers[0])
@@ -29,7 +30,8 @@ int	main(int argc, char **argv)
 	else
 	{
 		i = 0;
-		while (numbers[i])
+		size = argc - 1;
+		while (i < size)
 		{
 			ft_printf("%d", numbers[i]);
 			write(1, "\n", 1);

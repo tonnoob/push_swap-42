@@ -12,19 +12,21 @@
 
 #include "push_swap.h"
 
-//ALOCAR MEMORIA NO PARCE_INPUT 
+// 3 - Resolver frees do ft_split
+// evitar vazamento de memória
+// arrumar input de str
+// fazer um free_split
 
-
-int	check_duplicates(int *numbers)
+int	check_duplicates(int *numbers, int size)
 {
 	int	i;
 	int j;
 
 	i = 0;
-	while (i < numbers[i] - 1)
+	while (i < size - 1)
 	{
 		j = i + 1;
-		while (j < numbers[i])
+		while (j < size)
 		{
 			if (numbers[i] == numbers[j])
 				return (0);
@@ -32,10 +34,10 @@ int	check_duplicates(int *numbers)
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
-int	check_overflow(char *str_splitted)
+int	check_overflow(char *arr)
 {
 	int		i;
 	int 	sign;
@@ -45,89 +47,82 @@ int	check_overflow(char *str_splitted)
 	nbr = 0;
 	sign = 1;
 	i = 0;
-	if (str_splitted[i] == '-' || str_splitted[i] == '+')
+	if (arr[i] == '-' || arr[i] == '+')
 	{
-		if (str_splitted[i] == '-')
+		if (arr[i] == '-')
 			sign = -1;
 		i++;
 	}
 	limit = 2147483648;
 	if (sign == 1)
 		limit = INT_MAX;
-	while (ft_isdigit(str_splitted[i]))
+	while (ft_isdigit(arr[i]))
 	{
-		if (nbr > (limit - (str_splitted[i] - '0')) / 10)
+		if (nbr > (limit - (arr[i] - '0')) / 10)
 			return (0);
-		nbr = nbr * 10 + (str_splitted[i] - '0');
+		nbr = nbr * 10 + (arr[i] - '0');
 		i++;
 	}
 	return (1);
 }
 
-int	valid_format(char *str_splitted)
+int	valid_format(char *arr)
 {
 	int	i;
 
 	i = 0;
-	if (str_splitted[i] == '\0')
+	if (arr[i] == '\0')
 		return (0);
-	if (str_splitted[i] == '+' || str_splitted[i] == '-')
+	if (arr[i] == '+' || arr[i] == '-')
 	{
-		if (!str_splitted[i + 1])
+		if (!arr[i + 1])
 			return (0);
 		i++;
 	}
-	while (str_splitted[i])
+	while (arr[i])
 	{
-		if (!ft_isdigit(str_splitted[i]))
+		if (!ft_isdigit(arr[i]))
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int	valid_numbers(char **str_splitted)
+int	valid_numbers(char **arr)
 {
 	int i;
-	int *numbers;
 
 	i = 0;
-	numbers = NULL;
-	while (str_splitted[i])
+	while (arr[i])
 	{
-		if (!valid_format(str_splitted[i]))
+		if (!valid_format(arr[i]))
 			return (0);
-		if (!check_overflow(str_splitted[i]))
+		if (!check_overflow(arr[i]))
 			return (0);
-		numbers[i] = ft_atoi(str_splitted[i]);
 		i++;
 	}
-	if (!check_duplicates(numbers))
-		return (0);
 	return (1);
 }
 int	*parce_input(int argc, char **argv)
 {
-	char	**str;
+	char	**arr;
 	int		*numbers;
-	int		size;	
-	int		i;
+	int		need_free;
 
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (NULL);
-	if (argc == 2)
-		str = ft_split(argv[1], ' ');
-	else if (argc > 2)
-		str = argv + 1;
-	if (!valid_numbers(str))
-		return (NULL);
-	i = 0;
-
-	numbers = NULL;
-	while (str[i])
+	need_free = 0;
+	arr = get_input(argc, argv, &need_free);
+	if (!valid_numbers(arr))
 	{
-		numbers[i] = ft_atoi(str[i]);
-		i++;
+		if (need_free)
+			free(arr);
+		return (NULL);
 	}
+	numbers = convert_arr(arr, arrlen(arr));
+	if (!numbers)
+		return (NULL);
+	if (!check_duplicates(numbers, arrlen(arr)))
+		return (NULL);
 	return (numbers);
 }

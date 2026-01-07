@@ -29,11 +29,16 @@ typedef struct stack_s
 	int		size;
 } stack_t;
 
-int	check_duplicates(int *numbers);
+int arrlen(char **array);
+int *convert_arr(char **arr, int size);
+char **get_input(int argc, char **argv, int *need_free);
+
+int	check_duplicates(int *numbers, int size);
 int	check_overflow(char *str_splitted);
 int	valid_format(char *str_splitted);
 int	valid_numbers(char **str_splitted);
 int	*parce_input(int argc, char **argv);
+
 
 
 // sa / sb: trocam os dois primeiros nós
