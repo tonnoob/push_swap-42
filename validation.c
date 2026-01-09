@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 20:51:05 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/06 20:51:07 by osousa-d         ###   ########.fr       */
+/*   Updated: 2026/01/09 11:27:23 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// 3 - Resolver frees do ft_split
-// evitar vazamento de memória
-// arrumar input de str
-// fazer um free_split
+//corrigir erro "argv[1] = 0"
 
 int	check_duplicates(int *numbers, int size)
 {
@@ -103,11 +99,13 @@ int	valid_numbers(char **arr)
 	}
 	return (1);
 }
+
 int	*parce_input(int argc, char **argv)
 {
 	char	**arr;
 	int		*numbers;
 	int		need_free;
+	int		size;
 
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (NULL);
@@ -116,13 +114,16 @@ int	*parce_input(int argc, char **argv)
 	if (!valid_numbers(arr))
 	{
 		if (need_free)
-			free(arr);
+			free_split(arr);
 		return (NULL);
 	}
-	numbers = convert_arr(arr, arrlen(arr));
+	size = arrlen(arr);
+	numbers = convert_arr(arr, size);
+	if (need_free)
+		free_split(arr);
 	if (!numbers)
 		return (NULL);
-	if (!check_duplicates(numbers, arrlen(arr)))
+	if (!check_duplicates(numbers, size))
 		return (NULL);
 	return (numbers);
 }

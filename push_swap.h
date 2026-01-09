@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 20:02:04 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/06 20:02:06 by osousa-d         ###   ########.fr       */
+/*   Updated: 2026/01/09 11:17:47 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,16 @@ typedef struct stack_s
 	int		size;
 } stack_t;
 
-int arrlen(char **array);
-int *convert_arr(char **arr, int size);
-char **get_input(int argc, char **argv, int *need_free);
+int		arrlen(char **array);
+void	free_split(char **arr);
+int		*convert_arr(char **arr, int size);
+char	**get_input(int argc, char **argv, int *need_free);
 
-int	check_duplicates(int *numbers, int size);
-int	check_overflow(char *str_splitted);
-int	valid_format(char *str_splitted);
-int	valid_numbers(char **str_splitted);
-int	*parce_input(int argc, char **argv);
+int		check_duplicates(int *numbers, int size);
+int		check_overflow(char *str_splitted);
+int		valid_format(char *str_splitted);
+int		valid_numbers(char **str_splitted);
+int		*parce_input(int argc, char **argv);
 
 
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:36:38 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/07 09:36:40 by osousa-d         ###   ########.fr       */
+/*   Updated: 2026/01/09 11:13:01 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,22 @@ int arrlen(char **array)
         i++;
     return (i);
 }
+
+void    free_split(char **arr)
+{
+    int i;
+
+    if(!arr)
+        return ;
+    i = 0;
+    while (arr[i])
+    {
+        free(arr[i]);
+        i++;
+    }
+    free(arr);
+}
+
 char **get_input(int argc, char **argv, int *need_free)
 {
     char **arr;
