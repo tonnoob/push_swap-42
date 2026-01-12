@@ -6,7 +6,7 @@
 /*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 20:51:05 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/09 11:27:23 by otton-sousa      ###   ########.fr       */
+/*   Updated: 2026/01/11 21:58:54 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	check_duplicates(int *numbers, int size)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (i < size - 1)
@@ -36,10 +36,10 @@ int	check_duplicates(int *numbers, int size)
 int	check_overflow(char *arr)
 {
 	int		i;
-	int 	sign;
+	int		sign;
 	long	nbr;
 	long	limit;
-	
+
 	nbr = 0;
 	sign = 1;
 	i = 0;
@@ -86,7 +86,7 @@ int	valid_format(char *arr)
 
 int	valid_numbers(char **arr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (arr[i])
@@ -100,12 +100,11 @@ int	valid_numbers(char **arr)
 	return (1);
 }
 
-int	*parce_input(int argc, char **argv)
+int	*parce_input(int argc, char **argv, int	*size)
 {
 	char	**arr;
 	int		*numbers;
 	int		need_free;
-	int		size;
 
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (NULL);
@@ -117,13 +116,13 @@ int	*parce_input(int argc, char **argv)
 			free_split(arr);
 		return (NULL);
 	}
-	size = arrlen(arr);
-	numbers = convert_arr(arr, size);
+	*size = arrlen(arr);
+	numbers = convert_arr(arr, *size);
 	if (need_free)
 		free_split(arr);
 	if (!numbers)
 		return (NULL);
-	if (!check_duplicates(numbers, size))
+	if (!check_duplicates(numbers, *size))
 		return (NULL);
 	return (numbers);
 }

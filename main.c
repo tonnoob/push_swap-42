@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:59:27 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/06 19:59:28 by osousa-d         ###   ########.fr       */
+/*   Updated: 2026/01/11 21:57:53 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,21 @@ int	main(int argc, char **argv)
 {
 	int	*numbers;
 	int	i;
-	int size;
+	int	size;
 
-	numbers = parce_input(argc, argv);
-	if (!numbers || !numbers[0])
+	size = 0;
+	numbers = parce_input(argc, argv, &size);
+	if (!numbers)
 	{
 		ft_printf("Error\n");
 		return (1);
 	}
-	else
+	i = 0;
+	while (i < size)
 	{
-		i = 0;
-		size = argc - 1;
-		while (i < size)
-		{
-			ft_printf("%d", numbers[i]);
-			write(1, "\n", 1);
-			i++;
-		}
-		return (0);
+		ft_printf("%d\n", numbers[i]);
+		i++;
 	}
+	free(numbers);
+	return (0);
 }
