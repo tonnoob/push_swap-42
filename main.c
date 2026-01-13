@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	numbers = parce_input(argc, argv, &size);
 	if (!numbers)
 	{
-		ft_printf("Error\n");
+		ft_putendl_fd("Error", STDERR_FILENO);
 		return (1);
 	}
 	i = 0;
