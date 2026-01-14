@@ -20,6 +20,7 @@
 typedef struct node_s 
 {
 	int				value;
+	int				index;
 	struct node_s	*next;
 } node_t;
 
@@ -39,6 +40,19 @@ int		check_overflow(char *str_splitted);
 int		valid_format(char *str_splitted);
 int		valid_numbers(char **str_splitted);
 int		*parce_input(int argc, char **argv, int *size);
+
+void	swap(stack_t *stack);
+void	sa(stack_t *stk_a);
+void	sb(stack_t *stk_b);
+void	push(stack_t *stk_dest, stack_t *stk_src);
+void	pb(stack_t *b, stack_t *a);
+void	pa(stack_t *a, stack_t *b);
+void	rotate(stack_t *stack);
+void	ra(stack_t *stack_a);
+void	rb(stack_t *stack_b);
+void	rotate_reverse(stack_t *stack);
+void	rra(stack_t	*stack_a);
+void	rrb(stack_t	*stack_b);
 
 // sa / sb: trocam os dois primeiros nós
 // pa / pb: movem o primeiro nó de uma stack para a outra

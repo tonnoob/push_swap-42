@@ -26,7 +26,7 @@ void	push(stack_t *stk_dest, stack_t *stk_src)
 
 void	pb(stack_t *b, stack_t *a)
 {
-	push(a, b);
+	push(b, a);
 	ft_printf("pb\n");
 }
 
