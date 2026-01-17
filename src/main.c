@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./includes/push_swap.h"
 
 // O PRIMEIRO ARGUMENTO DEVE ESTAR NO TOPO
 // INSTRUÇÕES SEPARADAS POR '/n'

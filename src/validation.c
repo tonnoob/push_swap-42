@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./includes/push_swap.h"
+
 //corrigir erro "argv[1] = 0"
 
 int	check_duplicates(int *numbers, int size)

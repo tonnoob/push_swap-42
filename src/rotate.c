@@ -1,44 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_reverse.c                                   :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 11:46:34 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/14 11:46:37 by osousa-d         ###   ########.fr       */
+/*   Created: 2026/01/14 11:46:07 by osousa-d          #+#    #+#             */
+/*   Updated: 2026/01/14 11:46:09 by osousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-// rra / rrb: movem o último nó para o topo
+#include "./includes/push_swap.h"
 
-void	rotate_reverse(stack_t *stack)
+void	rotate(stack_t *stack)
 {
-	node_t	*top;
+	node_t	*a;
 	node_t	*current;
-	node_t	*last;
 
 	if (!stack || stack->size < 2)
 		return ;
+	a = stack->top;
+	stack->top = a->next;
 	current = stack->top;
-	top = stack->top;
-	while (current->next->next != NULL)
+	while (current->next != NULL)
 		current = current->next;
-	last = current->next;
-	last->next = top;
-	current->next = NULL;
-	stack->top = last;
+	current->next = a;
+	a->next = NULL;
 }
 
-void	rra(stack_t	*stack_a)
+void	ra(stack_t *stack_a)
 {
-	rotate_reverse(stack_a);
-	ft_printf("rra\n");
+	rotate(stack_a);
+	ft_printf("ra\n");
 }
 
-void	rrb(stack_t	*stack_b)
+void	rb(stack_t *stack_b)
 {
-	rotate_reverse(stack_b);
-	ft_printf("rrb\n");
+	rotate(stack_b);
+	ft_printf("rb\n");
 }

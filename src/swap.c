@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initializers.c                                     :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 19:58:04 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/06 19:58:38 by osousa-d         ###   ########.fr       */
+/*   Created: 2026/01/13 07:43:58 by osousa-d          #+#    #+#             */
+/*   Updated: 2026/01/13 07:44:00 by osousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./includes/push_swap.h"
 
-void	init_stack(stack_t *stack)
+void	swap(stack_t *stack)
 {
-	stack->top = NULL;
-	stack->size = 0;
-	return ;
+	node_t	*a;
+	node_t	*b;
+
+	if (!stack || stack->size < 2)
+		return ;
+	a = stack->top;
+	b = a->next;
+	a->next = b->next;
+	b->next = a;
+	stack->top = b;
 }
 
-node_t	*create_node(int n)
+void	sa(stack_t *stk_a)
 {
-	node_t	*node;
-
-	node = malloc(sizeof(node_t));
-	if (!node)
-		return (NULL);
-	node->value = n;
-	node->next = NULL;
-	return (node);
+	swap(stk_a);
+	ft_printf("sa\n");
 }
 
-void	build_stack(node_t *node, stack_t *stack)
+void	sb(stack_t *stk_b)
 {
-	
+	swap(stk_b);
+	ft_printf("sb\n");
 }

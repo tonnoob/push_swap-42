@@ -13,8 +13,8 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libftprintf/ft_printf/ft_printf.h"
-# include "libftprintf/libft/libft.h"
+# include "./libftprintf/ft_printf/ft_printf.h"
+# include "./libftprintf/libft/libft.h"
 # include <limits.h>
 
 typedef struct node_s 

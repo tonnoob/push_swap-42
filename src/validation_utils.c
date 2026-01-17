@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./includes/push_swap.h"
 
 int	arrlen(char **array)
 {
@@ -42,6 +42,7 @@ char	**get_input(int argc, char **argv, int *need_free)
 	char	**arr;
 
 	*need_free = 0;
+	arr = NULL;
 	if (argc == 2)
 	{
 		arr = ft_split(argv[1], ' ');

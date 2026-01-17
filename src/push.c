@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/13 07:43:58 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/13 07:44:00 by osousa-d         ###   ########.fr       */
+/*   Created: 2026/01/13 07:22:23 by osousa-d          #+#    #+#             */
+/*   Updated: 2026/01/13 07:22:33 by osousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./includes/push_swap.h"
 
-void	swap(stack_t *stack)
+void	push(stack_t *stk_dest, stack_t *stk_src)
 {
-	node_t	*a;
-	node_t	*b;
+	node_t	*tmp;
 
-	if (!stack || stack->size < 2)
+	if (!stk_src || !stk_dest || !stk_src->top)
 		return ;
-	a = stack->top;
-	b = a->next;
-	a->next = b->next;
-	b->next = a;
-	stack->top = b;
+	tmp = stk_src->top;
+	stk_src->top = tmp->next;
+	tmp->next = stk_dest->top;
+	stk_dest->top = tmp;
 }
 
-void	sa(stack_t *stk_a)
+void	pb(stack_t *b, stack_t *a)
 {
-	swap(stk_a);
-	ft_printf("sa\n");
+	push(b, a);
+	ft_printf("pb\n");
 }
 
-void	sb(stack_t *stk_b)
+void	pa(stack_t *a, stack_t *b)
 {
-	swap(stk_b);
-	ft_printf("sb\n");
+	push(a, b);
+	ft_printf("pa\n");
 }
