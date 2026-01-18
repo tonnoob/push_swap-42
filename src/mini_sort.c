@@ -3,29 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   mini_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 05:43:26 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/17 05:43:28 by osousa-d         ###   ########.fr       */
+/*   Updated: 2026/01/17 21:37:08 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-//FAZER A FUNÇÃO MINI _SORT, DIMINUIR LINHAS DA SORT_FIVE
-
-int	count_pos(stack_t *stack_a)
+void	sort_two(stack_t *stack_a)
 {
-	while (current != node_min)
-	{
-		current = current->next;
-		pos++;
-	}
-}
+	node_t	*a;
+	node_t	*b;
 
-void	sort_two(stack_t *stack)
-{
-
+	a = stack_a->top;
+	b = a->next;
+	if (b->value < a->value)
+		sa(stack_a);
 }
 
 void	sort_three(stack_t *stack_a)
@@ -59,35 +54,28 @@ void	sort_three(stack_t *stack_a)
 
 void	sort_five(stack_t *stack_a, stack_t *stack_b)
 {
-	node_t	*current;
 	node_t	*node_min;
 	int		pos;
-
-	current = stack_a->top;
-	node_min = current;
-	while (current != NULL)
+	int		init_size;
+	
+	init_size = stack_a->size;
+	while (stack_a->size > 3)
 	{
-		if (current->value < node_min->value)
-			node_min = current;
-		current = current->next;
+		node_min = search_min_node(stack_a);
+		pos = count_pos(stack_a, node_min);
+		rotate_min_to_top(stack_a, pos);
+		pb(stack_b, stack_a);
 	}
-	pos = 0;
-	current = stack_a->top;
-
-	if (pos <= stack_a->size / 2)
-		while (pos)
-			ra(stack_a);
-	else
-		while (pos)
-			rra(stack_a);
+	sort_three(stack_a);
+	while (stack_a->size != init_size)
+		pa(stack_a, stack_b);
 }
-void	mini_sort(stack_t *stack)
+void	mini_sort(stack_t *stack_a, stack_t *stack_b)
 {
-	if (stack->size == 2)
-		sort_two(stack);
-	else if (stack->size == 3)
-		sort_three(stack);
-	else if (stack->size == 5)
-		sort_five(stack);
-	return ;
+	if (stack_a->size == 2)
+		sort_two(stack_a);
+	else if (stack_a->size == 3)
+		sort_three(stack_a);
+	else if (stack_a->size == 5 || stack_a->size == 4)
+		sort_five(stack_a, stack_b);
 }

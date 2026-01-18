@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/17 02:02:18 by osousa-d          #+#    #+#              #
-#    Updated: 2026/01/17 02:02:21 by osousa-d         ###   ########.fr        #
+#    Updated: 2026/01/17 21:41:26 by otton-sousa      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CFLAGS = -Wall -Wextra -Werror
 SRC =	./src/main.c ./src/radix.c \
 		./src/validation.c ./src/validation_utils.c \
 		./src/swap.c ./src/push.c \
-		./src/rotate_reverse.c ./src/rotate.c 
+		./src/rotate_reverse.c ./src/rotate.c \
+		./src/mini_sort.c ./src/mini_sort_utils.c \
 
 OBJ = $(SRC:.c=.o)
 

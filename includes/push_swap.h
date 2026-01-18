@@ -6,7 +6,7 @@
 /*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 20:02:04 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/11 21:59:29 by otton-sousa      ###   ########.fr       */
+/*   Updated: 2026/01/17 21:26:30 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ int		check_overflow(char *str_splitted);
 int		valid_format(char *str_splitted);
 int		valid_numbers(char **str_splitted);
 int		*parce_input(int argc, char **argv, int *size);
+
+int		count_pos(stack_t *stack_a, node_t *node_min);
+node_t	*search_min_node(stack_t *stack_a);
+void	rotate_min_to_top(stack_t *stack_a, int pos);
 
 void	swap(stack_t *stack);
 void	sa(stack_t *stk_a);
