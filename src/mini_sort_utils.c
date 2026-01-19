@@ -1,5 +1,11 @@
 #include "./includes/push_swap.h"
 
+void	add_index(stack_t *a)
+{
+	
+
+}
+
 int	count_pos(stack_t *stack_a, node_t *node_min)
 {
 	node_t	*current;

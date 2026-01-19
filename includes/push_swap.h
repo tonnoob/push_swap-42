@@ -6,7 +6,7 @@
 /*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 20:02:04 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/18 01:10:33 by otton-sousa      ###   ########.fr       */
+/*   Updated: 2026/01/19 11:13:05 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,9 @@ int		*parce_input(int argc, char **argv, int *size);
 
 void	init_stack(stack_t *stack);
 node_t	*create_node(int n);
+void	free_list(stack_t *stack);
 
-
-
-
-
+void	add_index(stack_t *a);
 int		count_pos(stack_t *stack_a, node_t *node_min);
 node_t	*search_min_node(stack_t *stack_a);
 void	rotate_min_to_top(stack_t *stack_a, int pos);

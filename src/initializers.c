@@ -6,7 +6,7 @@
 /*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:58:04 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/18 01:08:00 by otton-sousa      ###   ########.fr       */
+/*   Updated: 2026/01/19 11:11:38 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,47 @@ node_t	*create_node(int n)
 		return (NULL);
 	node->value = n;
 	node->next = NULL;
+	node->index = NULL;
 	return (node);
 }
 
-stack_t	*create_stack(int *numbers)
+void	free_list(stack_t *stack)
 {
-	
+	node_t	*current;
+	node_t	*node_free;
+	current = stack->top;
+	while (current != NULL)
+	{
+		node_free = current;
+		current = current->next;
+		free(node_free);
+	}
+	stack->size = 0;
+	stack->top = NULL;
+}
 
-}	
-
-void	build_stack(node_t *node, stack_t *stack)
+int	connect_stack(stack_t *a, int *numbers, int size)
 {
-	
+	node_t	*new_node;
+	node_t	*last;
+	int		i;	
 
-
-	
+	i = 0;
+	while (i < size)
+	{
+		new_node = create_node(numbers[i]);
+		if (!new_node)
+		{
+			free_node(a);
+			return (0);
+		}
+		if (!a->top)
+			a->top = new_node;
+		else
+			last->next = new_node;
+		last = new_node;
+		a->size++;
+		i++;
+	}
+	return (1);
 }

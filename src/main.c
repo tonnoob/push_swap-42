@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 19:59:27 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/11 21:57:53 by otton-sousa      ###   ########.fr       */
+/*   Created: 2026/01/06 19:58:51 by osousa-d          #+#    #+#             */
+/*   Updated: 2026/01/19 11:10:52 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-// O PRIMEIRO ARGUMENTO DEVE ESTAR NO TOPO
-// INSTRUÇÕES SEPARADAS POR '/n'
-
 int	main(int argc, char **argv)
 {
-	int	*numbers;
-	int	i;
-	int	size;
+	stack_t	*a;
+	stack_t	*b;
+	int		*numbers;
+	int		size;
 
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		return (0);
 	size = 0;
 	numbers = parce_input(argc, argv, &size);
 	if (!numbers)
@@ -28,12 +28,10 @@ int	main(int argc, char **argv)
 		ft_putendl_fd("Error", STDERR_FILENO);
 		return (1);
 	}
-	i = 0;
-	while (i < size)
-	{
-		ft_printf("%d\n", numbers[i]);
-		i++;
-	}
-	free(numbers);
-	return (0);
+	init_stack(&a);
+	init_stack(&b);
+
+	connect_stack(&a, numbers, size);
+	
 }
+
