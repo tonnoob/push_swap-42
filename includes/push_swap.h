@@ -6,7 +6,7 @@
 /*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 20:02:04 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/17 21:26:30 by otton-sousa      ###   ########.fr       */
+/*   Updated: 2026/01/18 01:10:33 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,20 @@ int		valid_format(char *str_splitted);
 int		valid_numbers(char **str_splitted);
 int		*parce_input(int argc, char **argv, int *size);
 
+void	init_stack(stack_t *stack);
+node_t	*create_node(int n);
+
+
+
+
+
 int		count_pos(stack_t *stack_a, node_t *node_min);
 node_t	*search_min_node(stack_t *stack_a);
 void	rotate_min_to_top(stack_t *stack_a, int pos);
+void	sort_two(stack_t *stack_a);
+void	sort_three(stack_t *stack_a);
+void	sort_five(stack_t *stack_a, stack_t *stack_b);
+void	mini_sort(stack_t *stack_a, stack_t *stack_b);
 
 void	swap(stack_t *stack);
 void	sa(stack_t *stk_a);

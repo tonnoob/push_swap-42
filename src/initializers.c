@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initializers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:58:04 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/06 19:58:38 by osousa-d         ###   ########.fr       */
+/*   Updated: 2026/01/18 01:08:00 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,16 @@ node_t	*create_node(int n)
 	return (node);
 }
 
+stack_t	*create_stack(int *numbers)
+{
+	
+
+}	
+
 void	build_stack(node_t *node, stack_t *stack)
 {
+	
+
+
 	
 }

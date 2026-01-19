@@ -19,7 +19,7 @@ node_t	*search_min_node(stack_t *stack_a)
 {
 	node_t	*current;
 	node_t	*node_min;
-	
+
 	current = stack_a->top;
 	node_min = current;
 	while (current != NULL)

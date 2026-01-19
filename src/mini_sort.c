@@ -6,7 +6,7 @@
 /*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 05:43:26 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/17 21:37:08 by otton-sousa      ###   ########.fr       */
+/*   Updated: 2026/01/18 00:40:23 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	sort_five(stack_t *stack_a, stack_t *stack_b)
 	node_t	*node_min;
 	int		pos;
 	int		init_size;
-	
+
 	init_size = stack_a->size;
 	while (stack_a->size > 3)
 	{
@@ -70,6 +70,7 @@ void	sort_five(stack_t *stack_a, stack_t *stack_b)
 	while (stack_a->size != init_size)
 		pa(stack_a, stack_b);
 }
+
 void	mini_sort(stack_t *stack_a, stack_t *stack_b)
 {
 	if (stack_a->size == 2)

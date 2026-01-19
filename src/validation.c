@@ -6,7 +6,7 @@
 /*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 20:51:05 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/11 21:58:54 by otton-sousa      ###   ########.fr       */
+/*   Updated: 2026/01/18 01:03:05 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ int	*parce_input(int argc, char **argv, int	*size)
 
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (NULL);
-	need_free = 0;
 	arr = get_input(argc, argv, &need_free);
 	if (!valid_numbers(arr))
 	{
@@ -124,6 +123,9 @@ int	*parce_input(int argc, char **argv, int	*size)
 	if (!numbers)
 		return (NULL);
 	if (!check_duplicates(numbers, *size))
+	{
+		free(numbers);
 		return (NULL);
+	}
 	return (numbers);
 }
