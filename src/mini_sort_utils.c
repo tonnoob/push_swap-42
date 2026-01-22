@@ -1,14 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mini_sort_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/20 12:29:28 by osousa-d          #+#    #+#             */
+/*   Updated: 2026/01/20 12:29:35 by osousa-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./includes/push_swap.h"
 
-void	add_index(stack_t *a)
+int	count_pos(t_stack *stack_a, t_node *node_min)
 {
-	
-
-}
-
-int	count_pos(stack_t *stack_a, node_t *node_min)
-{
-	node_t	*current;
+	t_node	*current;
 	int		pos;
 
 	current = stack_a->top;
@@ -21,10 +27,10 @@ int	count_pos(stack_t *stack_a, node_t *node_min)
 	return (pos);
 }
 
-node_t	*search_min_node(stack_t *stack_a)
+t_node	*search_min_node(t_stack *stack_a)
 {
-	node_t	*current;
-	node_t	*node_min;
+	t_node	*current;
+	t_node	*node_min;
 
 	current = stack_a->top;
 	node_min = current;
@@ -37,7 +43,7 @@ node_t	*search_min_node(stack_t *stack_a)
 	return (node_min);
 }
 
-void	rotate_min_to_top(stack_t *stack_a, int pos)
+void	rotate_min_to_top(t_stack *stack_a, int pos)
 {
 	int	i;
 
@@ -45,7 +51,7 @@ void	rotate_min_to_top(stack_t *stack_a, int pos)
 	{
 		while (pos)
 		{
-			ra(stack_a);
+			rotate_r(stack_a, NULL, "ra");
 			pos--;
 		}
 	}
@@ -54,7 +60,7 @@ void	rotate_min_to_top(stack_t *stack_a, int pos)
 		i = stack_a->size - pos;
 		while (i)
 		{
-			rra(stack_a);
+			rotate_reverse_r(stack_a, NULL, "rra");
 			i--;
 		}
 	}

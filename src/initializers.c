@@ -12,30 +12,36 @@
 
 #include "./includes/push_swap.h"
 
-void	init_stack(stack_t *stack)
+t_stack	*init_stack(void)
 {
+	t_stack	*stack;
+
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
 	stack->top = NULL;
 	stack->size = 0;
-	return ;
+	return (stack);
 }
 
-node_t	*create_node(int n)
+t_node	*create_node(int n)
 {
-	node_t	*node;
+	t_node	*node;
 
-	node = malloc(sizeof(node_t));
+	node = malloc(sizeof(t_node));
 	if (!node)
 		return (NULL);
 	node->value = n;
 	node->next = NULL;
-	node->index = NULL;
+	node->index = -1;
 	return (node);
 }
 
-void	free_list(stack_t *stack)
+void	free_list(t_stack *stack)
 {
-	node_t	*current;
-	node_t	*node_free;
+	t_node	*current;
+	t_node	*node_free;
+
 	current = stack->top;
 	while (current != NULL)
 	{
@@ -45,12 +51,14 @@ void	free_list(stack_t *stack)
 	}
 	stack->size = 0;
 	stack->top = NULL;
+	free(stack);
+	stack = NULL;
 }
 
-int	connect_stack(stack_t *a, int *numbers, int size)
+void	connect_stack(t_stack *stack, int *numbers, int size)
 {
-	node_t	*new_node;
-	node_t	*last;
+	t_node	*new_node;
+	t_node	*last;
 	int		i;	
 
 	i = 0;
@@ -59,16 +67,15 @@ int	connect_stack(stack_t *a, int *numbers, int size)
 		new_node = create_node(numbers[i]);
 		if (!new_node)
 		{
-			free_node(a);
-			return (0);
+			free_list(stack);
+			return ;
 		}
-		if (!a->top)
-			a->top = new_node;
+		if (!stack->top)
+			stack->top = new_node;
 		else
 			last->next = new_node;
 		last = new_node;
-		a->size++;
+		stack->size++;
 		i++;
 	}
-	return (1);
 }

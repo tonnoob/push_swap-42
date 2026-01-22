@@ -17,9 +17,10 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC =	./src/main.c ./src/radix.c \
 		./src/validation.c ./src/validation_utils.c \
-		./src/swap.c ./src/push.c \
-		./src/rotate_reverse.c ./src/rotate.c \
+		./src/initializers.c ./src/dispatcher.c \
+		./src/moves.c ./src/moves_utils.c \
 		./src/mini_sort.c ./src/mini_sort_utils.c \
+		./src/add_index.c
 
 OBJ = $(SRC:.c=.o)
 

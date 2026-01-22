@@ -12,10 +12,10 @@
 
 #include "./includes/push_swap.h"
 
-void	swap(stack_t *stack)
+void	swap(t_stack *stack)
 {
-	node_t	*a;
-	node_t	*b;
+	t_node	*a;
+	t_node	*b;
 
 	if (!stack || stack->size < 2)
 		return ;
@@ -26,14 +26,51 @@ void	swap(stack_t *stack)
 	stack->top = b;
 }
 
-void	sa(stack_t *stk_a)
+void	push(t_stack *stk_dest, t_stack *stk_src, char *op)
 {
-	swap(stk_a);
-	ft_printf("sa\n");
+	t_node	*tmp;
+
+	if (!stk_src || !stk_dest || stk_src->size == 0)
+		return ;
+	tmp = stk_src->top;
+	stk_src->top = tmp->next;
+	stk_src->size--;
+	tmp->next = stk_dest->top;
+	stk_dest->top = tmp;
+	stk_dest->size++;
+	ft_printf("%s\n", op);
 }
 
-void	sb(stack_t *stk_b)
+void	rotate(t_stack *stack)
 {
-	swap(stk_b);
-	ft_printf("sb\n");
+	t_node	*a;
+	t_node	*current;
+
+	if (!stack || stack->size < 2)
+		return ;
+	a = stack->top;
+	stack->top = a->next;
+	current = stack->top;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = a;
+	a->next = NULL;
+}
+
+void	rotate_reverse(t_stack *stack)
+{
+	t_node	*top;
+	t_node	*current;
+	t_node	*last;
+
+	if (!stack || stack->size < 2)
+		return ;
+	current = stack->top;
+	top = stack->top;
+	while (current->next->next != NULL)
+		current = current->next;
+	last = current->next;
+	last->next = top;
+	current->next = NULL;
+	stack->top = last;
 }

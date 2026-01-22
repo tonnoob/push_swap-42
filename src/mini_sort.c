@@ -12,49 +12,52 @@
 
 #include "./includes/push_swap.h"
 
-void	sort_two(stack_t *stack_a)
+void	sort_two(t_stack *stack_a)
 {
-	node_t	*a;
-	node_t	*b;
+	t_node	*a;
+	t_node	*b;
 
+	if (!stack_a)
+		return ;
 	a = stack_a->top;
 	b = a->next;
 	if (b->value < a->value)
-		sa(stack_a);
+		swap_s(stack_a, NULL, "sa");
+	return ;
 }
 
-void	sort_three(stack_t *stack_a)
+void	sort_three(t_stack *stack_a)
 {
-	node_t	*a;
-	node_t	*b;
-	node_t	*c;
+	t_node	*a;
+	t_node	*b;
+	t_node	*c;
 
 	a = stack_a->top;
 	b = a->next;
 	c = b->next;
 	if (a->value < c->value && c->value < b->value)
 	{
-		rra(stack_a);
-		sa(stack_a);
+		rotate_reverse_r(stack_a, NULL, "rra");
+		swap_s(stack_a, NULL, "sa");
 	}
 	else if (c->value < b->value && b->value < a->value)
 	{
-		sa(stack_a);
-		rra(stack_a);
+		swap_s(stack_a, NULL, "sa");
+		rotate_reverse_r(stack_a, NULL, "rra");
 	}
 	else if (b->value < a->value && a->value < c->value)
-		sa(stack_a);
+		swap_s(stack_a, NULL, "sa");
 	else if (b->value < c->value && c->value < a->value)
-		rra(stack_a);
+		rotate_r(stack_a, NULL, "ra");
 	else if (c->value < a->value && a->value < b->value)
-		ra(stack_a);
+		rotate_reverse_r(stack_a, NULL, "rra");
 	else
 		return ;
 }
 
-void	sort_five(stack_t *stack_a, stack_t *stack_b)
+void	sort_five(t_stack *stack_a, t_stack *stack_b)
 {
-	node_t	*node_min;
+	t_node	*node_min;
 	int		pos;
 	int		init_size;
 
@@ -64,14 +67,14 @@ void	sort_five(stack_t *stack_a, stack_t *stack_b)
 		node_min = search_min_node(stack_a);
 		pos = count_pos(stack_a, node_min);
 		rotate_min_to_top(stack_a, pos);
-		pb(stack_b, stack_a);
+		push(stack_b, stack_a, "pb");
 	}
 	sort_three(stack_a);
 	while (stack_a->size != init_size)
-		pa(stack_a, stack_b);
+		push(stack_a, stack_b, "pa");
 }
 
-void	mini_sort(stack_t *stack_a, stack_t *stack_b)
+void	mini_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->size == 2)
 		sort_two(stack_a);
@@ -79,4 +82,5 @@ void	mini_sort(stack_t *stack_a, stack_t *stack_b)
 		sort_three(stack_a);
 	else if (stack_a->size == 5 || stack_a->size == 4)
 		sort_five(stack_a, stack_b);
+	return ;
 }
