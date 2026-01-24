@@ -62,7 +62,6 @@ void	add_index(t_stack *stack, int *index, int size);
 int		stacklen(t_stack *stack);
 int		count_bits(int size);
 void	radix_sort(t_stack *a, t_stack *b);
-
 void	dispatcher(t_stack *a, t_stack *b);
 t_stack	*launcher(int argc, char **argv);
 
