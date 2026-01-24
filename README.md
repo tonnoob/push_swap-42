@@ -39,5 +39,7 @@ At the root of the project, run:
 
 ```bash
 make
+```
+
 
 ## Instructions
