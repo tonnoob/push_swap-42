@@ -47,7 +47,7 @@ At the root of the project, run:
 make
 ```
 
-## Instructions ##
+## Resources ##
 
 After compiling the project, you must execute the **push_swap** file with the arguments:
 
