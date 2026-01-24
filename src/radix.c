@@ -20,7 +20,7 @@ void	radix_sort(t_stack *a, t_stack *b)
 	int		size;
 	int		max_bits;
 	int		bit;
-	int 	i;
+	int		i;
 
 	size = stacklen(a);
 	max_bits = count_bits(size);
@@ -59,7 +59,7 @@ int	stacklen(t_stack *stack)
 
 int	count_bits(int size)
 {
-	int n;
+	int	n;
 	int	bits;
 
 	if (size <= 1)
