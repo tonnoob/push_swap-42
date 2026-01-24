@@ -47,7 +47,7 @@ At the root of the project, run:
 make
 ```
 
-## Resources ##
+## Instructions ##
 
 After compiling the project, you must execute the **push_swap** file with the arguments:
 
@@ -134,6 +134,6 @@ This allows you to clearly verify:
 - The behavior of your algorithm step by step
 ---
 
-## Instructions ##
+## Resources ##
 
 I used ChatGPT (https://chatgpt.com/) to help me understand radix sort, organize the project (deciding the next steps), and translate the `README` into English.
