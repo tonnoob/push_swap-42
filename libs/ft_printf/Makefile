@@ -5,43 +5,51 @@
 #                                                     +:+ +:+         +:+      #
 #    By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/12/04 09:44:04 by otton-sousa       #+#    #+#              #
-#    Updated: 2025/12/04 09:44:07 by otton-sousa      ###   ########.fr        #
+#    Created: 2025/08/11 20:54:01 by osousa-d          #+#    #+#              #
+#    Updated: 2026/02/02 01:54:12 by otton-sousa      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = ft_printf.a
 
 CC = cc
-
 CFLAGS = -Wall -Wextra -Werror
 
-LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)/libft.a
+SRC =	ft_print_char.c \
+		ft_print_str.c \
+		ft_print_hex.c \
+		ft_print_nbr.c \
+		ft_print_pointer.c \
+		ft_print_unsigned.c \
+		ft_printf.c
 
-FT_PRINTF_DIR = ft_printf
-FT_PRINTF = $(FT_PRINTF_DIR)/*.o
+OBJ_DIR = obj
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+
+LIBFT_DIR = ../libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(FT_PRINTF)
-	cp $(LIBFT) $(NAME)
-	ar rcs $(NAME) $(FT_PRINTF)
+$(NAME): $(OBJ) $(LIBFT)
+	@ar rcs $(NAME) $(OBJ)
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-	make -C $(LIBFT_DIR)
+	@make --no-print-directory -C $(LIBFT_DIR)
 
-$(FT_PRINTF):
-	make -C $(FT_PRINTF_DIR)
-
-clean: 
-	make clean -C $(LIBFT_DIR)
-	make clean -C $(FT_PRINTF_DIR)
+clean:
+	@rm -rf $(OBJ_DIR)
+	@make --no-print-directory clean -C $(LIBFT_DIR)
 
 fclean: clean
-	rm -f $(NAME)
-	make fclean -C $(LIBFT_DIR)
-	make fclean -C $(FT_PRINTF_DIR)
+	@rm -f $(NAME)
+	@make --no-print-directory fclean -C $(LIBFT_DIR)
 
 re: fclean all
 
