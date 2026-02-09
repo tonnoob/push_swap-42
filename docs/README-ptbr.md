@@ -49,6 +49,14 @@ Na raiz do projeto, execute:
 make
 ```
 
+Outros comandos:
+| Comando | Descrição |
+|---------|-----------|
+| make clean | Limpa arquivos .o |
+| make fclean | Limpa arquivos .o e arquivos executáveis. |
+| make re | Recompila tudo|
+| make valgrind ARGS="input" | Verifica vazamento de memória |
+
 ## Instruções ##
 
 Após compilar o projeto, você deve executar o arquivo **push_swap** com os seguintes argumentos:
@@ -133,3 +141,5 @@ Utilizei o ChatGPT (https://chatgpt.com/) para me ajudar a entender o radix sort
 
 O site para visualizar como a ordenação funciona:
 https://push-swap42-visualizer.vercel.app/
+
+   stacks c-algorithm 42-school

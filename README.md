@@ -54,6 +54,15 @@ At the root of the project, run:
 make
 ```
 
+Other commands:
+
+| Command | Description |
+|---------|-------------|
+| make clean | Clears .o files |
+| make fclean | Clears .o files and mentioned files. |
+| make re | Recompile everything |
+| make valgrind ARGS="input" | Check for memory leaks |
+
 ## Instructions ##
 
 After compiling the project, you must execute the **push_swap** file with the arguments:
