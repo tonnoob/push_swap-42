@@ -1,6 +1,6 @@
 *This project has been created as part of the 42 curriculum by osousa-d.*
 
-[Versão em português 🇧🇷](README-ptbr.md)
+[Versão em português 🇧🇷](docs/README-ptbr.md)
 
 ![](docs/img.png)
 
