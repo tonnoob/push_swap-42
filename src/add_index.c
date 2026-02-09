@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   add_index.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 01:37:44 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/24 01:37:47 by osousa-d         ###   ########.fr       */
+/*   Updated: 2026/02/08 17:49:04 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../inc/push_swap.h"
 
 int	*ord_numbers(int *numbers, int size)
 {

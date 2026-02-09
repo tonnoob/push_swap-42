@@ -6,11 +6,11 @@
 /*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:36:38 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/11 22:00:57 by otton-sousa      ###   ########.fr       */
+/*   Updated: 2026/02/08 17:51:07 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../inc/push_swap.h"
 
 int	arrlen(char **array)
 {

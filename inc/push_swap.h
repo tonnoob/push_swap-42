@@ -6,15 +6,15 @@
 /*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 20:02:04 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/19 11:13:05 by otton-sousa      ###   ########.fr       */
+/*   Updated: 2026/02/08 17:52:28 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "./libftprintf/ft_printf/ft_printf.h"
-# include "./libftprintf/libft/libft.h"
+# include "../libs/ft_printf/ft_printf.h"
+# include "../libs/libft/libft.h"
 # include <limits.h>
 
 typedef struct node_s

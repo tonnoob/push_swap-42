@@ -6,11 +6,11 @@
 /*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 20:51:05 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/18 01:03:05 by otton-sousa      ###   ########.fr       */
+/*   Updated: 2026/02/08 17:51:19 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../inc/push_swap.h"
 
 int	check_duplicates(int *numbers, int size)
 {

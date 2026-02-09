@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mini_sort_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 12:29:28 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/20 12:29:35 by osousa-d         ###   ########.fr       */
+/*   Updated: 2026/02/08 17:50:48 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../inc/push_swap.h"
 
 int	count_pos(t_stack *stack_a, t_node *node_min)
 {

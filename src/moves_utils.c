@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   moves_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osousa-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 13:47:40 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/20 13:47:42 by osousa-d         ###   ########.fr       */
+/*   Updated: 2026/02/08 17:50:56 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../inc/push_swap.h"
 
 void	swap_s(t_stack *a, t_stack *b, char *op)
 {

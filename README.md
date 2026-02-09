@@ -1,5 +1,9 @@
 *This project has been created as part of the 42 curriculum by osousa-d.*
 
+[Versão em português 🇧🇷](README-ptbr.md)
+
+![](docs/img.png)
+
 # push_swap
 
 ## Description
@@ -34,8 +38,11 @@ This implementation uses:
 - A **linked list** to represent the stacks:
   - `t_stack` containing `size` and `top`
   - `t_node` containing `value`, `index`, and `next`
-- **Radix sort** for medium and large input sizes
+- **Radix sort** for medium and large input sizes.
+	- I gave an explanation for Radix:  [Explaining the radix](docs/radix_explained.md)
+
 - A **mini_sort** strategy for small stacks (2 to 5 elements), ensuring optimal or near-optimal move counts
+	- Minisort is another sorting method, but it's used for specific cases where we check if **Stack A** has a size between `5` and `2`, because Radix sort isn't the most efficient method for small numbers; it would make many unnecessary moves. So, minisort is only used in these specific cases.
 
 ---
 
@@ -137,3 +144,6 @@ This allows you to clearly verify:
 ## Resources ##
 
 I used ChatGPT (https://chatgpt.com/) to help me understand radix sort, organize the project (deciding the next steps), and translate the `README` into English.
+
+The website to visually see how the sorting works: 
+https://push-swap42-visualizer.vercel.app/

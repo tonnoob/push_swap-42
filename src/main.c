@@ -6,11 +6,11 @@
 /*   By: otton-sousa <otton-sousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:58:51 by osousa-d          #+#    #+#             */
-/*   Updated: 2026/01/19 11:10:52 by otton-sousa      ###   ########.fr       */
+/*   Updated: 2026/02/08 17:50:41 by otton-sousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../inc/push_swap.h"
 
 t_stack	*launcher(int argc, char **argv);
 
