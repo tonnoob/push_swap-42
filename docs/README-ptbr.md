@@ -29,6 +29,7 @@ Pega o primeiro número (do topo) de uma Stack e o move para a última posição
 ### Reverse Rotate
 Pega o último número (base) de uma Stack e o move para a primeira posição (topo) da mesma Stack. `rra` (Stack A), `rrb` (Stack B) e `rrr` (pilhas A e B).
 
+---
 ### Detalhes da Implementação
 Esta implementação utiliza:
 - Uma **lista ligada** para representar as stacks:
